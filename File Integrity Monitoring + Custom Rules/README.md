@@ -18,3 +18,15 @@ I repeated the exact setup on my Ubuntu endpoint for parity, creating a director
 Next I modified the Linux agent's ossec.conf file to monitor /opt/company-data in real-time and restarted the agent service.
 
 **Testing:** Modifying and deleting test.txt successfully triggered the corresponding integrity and deletion events on my central dashboard
+
+## **Custom Guest Account Detection Rule**
+
+Because the built-in Windows Guest account is disabled by default, attackers often try to enable it to create backdoor persistence. I engineered a custom Wazuh rule to detect when this specific account is activated.
+
+### **Identifying the Telemetry:**
+
+I manually enabled the Guest account on my Windows VM to generate raw log events.
+
+I searched my Wazuh Archives and identified Event ID 4722 as the event code indicating an account was enabled.
+
+I extracted the specific log fields to build a highly granular search query: *data.win.eventdata.targetUserName: Guest and data.win.system.eventID: 4722*
