@@ -30,3 +30,8 @@ I manually enabled the Guest account on my Windows VM to generate raw log events
 I searched my Wazuh Archives and identified Event ID 4722 as the event code indicating an account was enabled.
 
 I extracted the specific log fields to build a highly granular search query: *data.win.eventdata.targetUserName: Guest and data.win.system.eventID: 4722*
+
+### **Creating Rule:**
+
+I drafted an XML rule in my manager's local_rules.xml file using AI to help structure the basic logic
+Later we confirm the rule being executed successfully after enabling the account.
