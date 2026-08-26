@@ -34,4 +34,5 @@ I extracted the specific log fields to build a highly granular search query: *da
 ### **Creating Rule:**
 
 I drafted an XML rule in my manager's local_rules.xml file using AI to help structure the basic logic
+
 Later we confirm the rule being executed successfully after enabling the account.
